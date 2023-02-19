@@ -5,12 +5,12 @@ import datetime
 start = input("Would you like to begin? Y/N").lower()
 
 if start == "y":
-    print("alright lets go")
+    print("Alright! Lets go!")
 else:
     sys.exit
     
 # day selection
-days = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 for p, day in enumerate(days):
     print("{0}: {1}".format(p, day))
 
@@ -46,7 +46,6 @@ while True:
 selected_month = months[user_monthnumber]
 
 
-
 # year selection
 while True:
     selected_year = input("Please enter a year: ")
@@ -59,18 +58,13 @@ while True:
     except ValueError:
         print("Error: Enter a valid year.")
         
-# Checking my inputs
-print("Lets find out how many", selected_day,"'s there are in", selected_month, "of year", selected_year)
-
-
-
 from datetime import date
 
 firstdayofmonth = date(selected_year, (user_monthnumber+1), 1).isoweekday()
 
-print(firstdayofmonth)
+# print(firstdayofmonth)
 firstxdayinthemonthdate = (user_daynumber-firstdayofmonth)%7+1
-print(firstxdayinthemonthdate)
+# print(firstxdayinthemonthdate)
 
 
 user_monthnumber= user_monthnumber+1
@@ -78,12 +72,8 @@ days_in_month = calendar.monthrange(selected_year, user_monthnumber)[1]
 user_monthnumber= user_monthnumber-1
 
 w= 0
-    
 while firstxdayinthemonthdate<= days_in_month:
-    
     w = w+1
     firstxdayinthemonthdate += 7
 
 print("There are", w, selected_day, "in", selected_month, "of year", selected_year)
-
-
