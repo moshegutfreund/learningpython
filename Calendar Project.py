@@ -66,11 +66,11 @@ print("Lets find out how many", selected_day,"'s there are in", selected_month, 
 
 from datetime import date
 
-whatdayoftheweekisthefirstdayofthisselectedmonth = date(selected_year, (user_monthnumber+1), 1).isoweekday()
+firstdayofmonth = date(selected_year, (user_monthnumber+1), 1).isoweekday()
 
-print(whatdayoftheweekisthefirstdayofthisselectedmonth)
-whatnumberdayinthemonthisthedayyourelookingfor = (user_daynumber-whatdayoftheweekisthefirstdayofthisselectedmonth)%7+1
-print(whatnumberdayinthemonthisthedayyourelookingfor)
+print(firstdayofmonth)
+firstxdayinthemonthdate = (user_daynumber-firstdayofmonth)%7+1
+print(firstxdayinthemonthdate)
 
 
 user_monthnumber= user_monthnumber+1
@@ -79,10 +79,10 @@ user_monthnumber= user_monthnumber-1
 
 w= 0
     
-while whatnumberdayinthemonthisthedayyourelookingfor<= days_in_month:
+while firstxdayinthemonthdate<= days_in_month:
     
     w = w+1
-    whatnumberdayinthemonthisthedayyourelookingfor += 7
+    firstxdayinthemonthdate += 7
 
 print("There are", w, selected_day, "in", selected_month, "of year", selected_year)
 
